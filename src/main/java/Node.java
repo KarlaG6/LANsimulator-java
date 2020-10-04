@@ -8,15 +8,24 @@
  *
  * @author karla
  */
-abstract public class Node extends Device{
+public class Node extends Device{
 	
-	String mssg = "";
+	private String mssg = "";
+	private Node  next = null;
 
-	public Node(String name, String type, String mssg) {
+	public Node(String name, String type, String mssg, Node next) {
 		super(name, type);
 		this.mssg = mssg;
+		this.next = next;
 	}
-	
+
+	public Node getNext() {
+		return next;
+	}
+
+	public void setNext(Node next) {
+		this.next = next;
+	}
 
 	public String getMssg() {
 		return mssg;

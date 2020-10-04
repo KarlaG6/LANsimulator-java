@@ -8,7 +8,7 @@
  *
  * @author karla
  */ 
-public class Device {
+public abstract class Device {
 	String name = "",type = "";
 	boolean cel = false, computer = false, fax = false, workStation = false;
 

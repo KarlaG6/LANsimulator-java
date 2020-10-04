@@ -10,19 +10,21 @@
  */
 public abstract class LAN extends Node{
 	String netName = "";
-	boolean sopTransm, controlAccess, standars;
+	String sopTransm, controlAccess, standars;
 	int vTransm;
-	Node head = null, next = null, last = null, receptor;
+	Node head = null, last = null, receptor;
 	int size=0;
 
-	public LAN(boolean sopTransm, boolean controlAccess, boolean standars, int vTransm, Node receptor,
-									String name, String type, String mssg){
-		super(name, type, mssg);
+	public LAN(String sopTransm, String controlAccess, String standars, int vTransm, Node receptor,
+									String name, String type, String mssg, Node head, Node last, Node next){
+		super(name, type, mssg, next);
 		this.sopTransm = sopTransm;
 		this.controlAccess = controlAccess;
 		this.standars = standars;
 		this.vTransm = vTransm;
 		this.receptor = receptor;
+		this.head = head;
+		this.last = last;
 	}
 
 	public String getNetName() {
@@ -33,30 +35,75 @@ public abstract class LAN extends Node{
 		this.netName = netName;
 	}
 
-	public boolean isSopTransm() {
+	public String getSopTransm() {
 		return sopTransm;
 	}
 
-	public void setSopTransm(boolean sopTransm) {
+	public void setSopTransm(String sopTransm) {
 		this.sopTransm = sopTransm;
 	}
 
-	public boolean isControlAccess() {
+	public String getControlAccess() {
 		return controlAccess;
 	}
 
-	public void setControlAccess(boolean controlAccess) {
+	public void setControlAccess(String controlAccess) {
 		this.controlAccess = controlAccess;
 	}
 
-	public boolean isStandars() {
+	public String getStandars() {
 		return standars;
 	}
 
-	public void setStandars(boolean standars) {
+	public void setStandars(String standars) {
 		this.standars = standars;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Override
+	public void setNext(Node next) {
+		super.setNext(next);
+	}
+
+	@Override
+	public Node getNext() {
+		return super.getNext();
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize(); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public String toString() {
+		return super.toString(); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone(); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	
+	
 	public int getvTransm() {
 		return vTransm;
 	}
@@ -71,14 +118,6 @@ public abstract class LAN extends Node{
 
 	public void setHead(Node head) {
 		this.head = head;
-	}
-
-	public Node getNext() {
-		return next;
-	}
-
-	public void setNext(Node next) {
-		this.next = next;
 	}
 
 	public Node getLast() {
@@ -175,8 +214,10 @@ public abstract class LAN extends Node{
 
 	
 	abstract int enumerate();
-	abstract void add(String name);
-	abstract void delete(Node  nodo);
+	abstract boolean search(String name);
+	abstract void removePosition(int index);
+	abstract void add(String name, String type);
+	abstract void delete();
 	abstract boolean sendPack(String mssg, Node rec);
 	abstract boolean difundPack(String mssg);
 	

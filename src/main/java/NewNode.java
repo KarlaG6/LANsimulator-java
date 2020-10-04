@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author karla
  */
-public class newDevice extends javax.swing.JFrame {
+public class NewNode extends javax.swing.JFrame {
 	
 	/**
 	 * Creates new form newDevice
 	 */
-	public newDevice() {
+	public NewNode() {
 		initComponents();
 	}
 	
@@ -46,7 +46,7 @@ public class newDevice extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Crear un nuevo dispositivo");
+        jLabel1.setText("Ingresar nuevo dispositivo");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -136,23 +136,22 @@ public class newDevice extends javax.swing.JFrame {
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
 
 	javax.swing.JRadioButton[]  deviceTypesRB = {cel, computer, fax, workStat};
-	javax.swing.JRadioButton selected = null;int i=0;boolean m = false;
+	String selected = "";int i=0;boolean m = false;
 	do {			
 		if (deviceTypesRB[i].isSelected()){
-			selected = deviceTypesRB[i];
+			selected = deviceTypesRB[i].getText();
 			m=true;
 		}else{
 			i++;
 		}
 	} while (i < 4 && !m);
-	
-	if (selected == null || deviceName.getText().contentEquals("") || deviceName.getText().contentEquals("Indique el nombre"))
+	Node nodo = new Node(deviceName.getText(), selected, "", null);
+	if (selected.contentEquals("") || nodo.getName().contentEquals("") || nodo.getName().contentEquals("Indique el nombre"))
 		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", 
 							"No se ha podido crear el dispositivo", JOptionPane.ERROR_MESSAGE);
 	else
-		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Nombre: "+deviceName.getText()+"\n Dispotivo: "+ selected.getText(), 
+		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Nombre: "+nodo.getName()+"\n Dispotivo: "+ nodo.getType(), 
 									"Dispositivo Creado", JOptionPane.INFORMATION_MESSAGE);
-//	Device dispo = new Device(deviceName.toString(), selected.getText());
     }//GEN-LAST:event_createActionPerformed
 
 	/**
@@ -172,20 +171,21 @@ public class newDevice extends javax.swing.JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(newDevice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(NewNode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(newDevice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(NewNode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(newDevice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(NewNode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(newDevice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(NewNode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
+		//</editor-fold>
 		//</editor-fold>
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new newDevice().setVisible(true);
+				new NewNode().setVisible(true);
 			}
 		});
 	}
