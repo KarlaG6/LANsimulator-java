@@ -134,21 +134,24 @@ public class newDevice extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-//       saber que alguno este selected y cual
+
 	javax.swing.JRadioButton[]  deviceTypesRB = {cel, computer, fax, workStat};
 	javax.swing.JRadioButton selected = null;int i=0;boolean m = false;
 	do {			
 		if (deviceTypesRB[i].isSelected()){
 			selected = deviceTypesRB[i];
 			m=true;
+		}else{
+			i++;
 		}
-		i++;
-	} while (i < deviceTypesRB.length || m);
+	} while (i < 4 && !m);
 	
-	if (selected == null || deviceName.toString().contentEquals(""))
-		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "No se ha podido crear el dispositivo", JOptionPane.ERROR_MESSAGE);
+	if (selected == null || deviceName.getText().contentEquals("") || deviceName.getText().contentEquals("Indique el nombre"))
+		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", 
+							"No se ha podido crear el dispositivo", JOptionPane.ERROR_MESSAGE);
 	else
-		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Nombre: "+deviceName+"\n Dispotivo: "+ selected.getText(), "Dispositivo Creado", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Nombre: "+deviceName.getText()+"\n Dispotivo: "+ selected.getText(), 
+									"Dispositivo Creado", JOptionPane.INFORMATION_MESSAGE);
 //	Device dispo = new Device(deviceName.toString(), selected.getText());
     }//GEN-LAST:event_createActionPerformed
 
