@@ -235,6 +235,11 @@ public class Ring extends LAN{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
+	@Override
+	boolean config(String sopTransm, String controlAccess, String standars, int vTransm) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
 	
 	
 }

@@ -220,5 +220,6 @@ public abstract class LAN extends Node{
 	abstract void delete();
 	abstract boolean sendPack(String mssg, Node rec);
 	abstract boolean difundPack(String mssg);
+	abstract boolean config(String sopTransm, String controlAccess, String standars, int vTransm);
 	
 }

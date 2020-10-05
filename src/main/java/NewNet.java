@@ -8,12 +8,12 @@
  *
  * @author karla
  */
-public class newNet extends javax.swing.JPanel {
+public class NewNet extends javax.swing.JPanel {
 
 	/**
 	 * Creates new form newNet
 	 */
-	public newNet() {
+	public NewNet() {
 		initComponents();
 	}
 
@@ -32,37 +32,30 @@ public class newNet extends javax.swing.JPanel {
         ringLabel = new javax.swing.JLabel();
         starLabel = new javax.swing.JLabel();
         star = new javax.swing.JTextField();
-        hub = new javax.swing.JTextField();
         ring = new javax.swing.JTextField();
         bus = new javax.swing.JTextField();
+        standar = new javax.swing.JComboBox<>();
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Configuración del Nodo");
+        titleLabel.setText("Configura la Red");
 
         BusLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BusLabel.setText("Bus:");
+        BusLabel.setText("Soporte de Transmición:");
 
         hubLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        hubLabel.setText("Hub:");
+        hubLabel.setText("Estandar:");
 
         ringLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ringLabel.setText("Anillo:");
+        ringLabel.setText("Velocidad de Transmición:");
 
         starLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        starLabel.setText("Estrella:");
+        starLabel.setText("Control de Acceso:");
 
         star.setText("Ingrese el valor");
         star.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 starActionPerformed(evt);
-            }
-        });
-
-        hub.setText("Ingrese el valor");
-        hub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hubActionPerformed(evt);
             }
         });
 
@@ -80,30 +73,34 @@ public class newNet extends javax.swing.JPanel {
             }
         });
 
+        standar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione una --", "IEEE 802.3", "IEEE 802.11", "IEEE 802.15" }));
+        standar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                standarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
+                .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(ringLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                            .addComponent(ring, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(hubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(starLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(bus)
-                                .addComponent(star)
-                                .addComponent(hub, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ringLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BusLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(starLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hubLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bus, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(star, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(ring, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(standar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,10 +116,10 @@ public class newNet extends javax.swing.JPanel {
                     .addComponent(starLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(star, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hub, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(hubLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(standar))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ringLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ring, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,10 +131,6 @@ public class newNet extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_starActionPerformed
 
-    private void hubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hubActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hubActionPerformed
-
     private void ringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ringActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ringActionPerformed
@@ -146,14 +139,18 @@ public class newNet extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_busActionPerformed
 
+    private void standarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_standarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_standarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BusLabel;
     private javax.swing.JTextField bus;
-    private javax.swing.JTextField hub;
     private javax.swing.JLabel hubLabel;
     private javax.swing.JTextField ring;
     private javax.swing.JLabel ringLabel;
+    private javax.swing.JComboBox<String> standar;
     private javax.swing.JTextField star;
     private javax.swing.JLabel starLabel;
     private javax.swing.JLabel titleLabel;

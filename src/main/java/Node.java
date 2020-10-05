@@ -10,8 +10,8 @@
  */
 public class Node extends Device{
 	
-	private String mssg = "";
-	private Node  next = null;
+	String mssg = "";
+	Node  next = null;
 
 	public Node(String name, String type, String mssg, Node next) {
 		super(name, type);
